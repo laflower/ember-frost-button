@@ -21,7 +21,8 @@
   "author": "Steven Glanzer (https://github.com/sglanzer)",
   "contributors": [
     "Roxanne Panthaky (https://github.com/rox163)",
-    "Adam Meadows (https://github.com/job13er)"
+    "Adam Meadows (https://github.com/job13er)",
+    "Matthew Dahl (https://github.com/sandersky)"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -56,7 +57,7 @@
     "ember-cli-htmlbars": "^1.0.1",
     "ember-cli-sass": "^5.1.0",
     "ember-frost-css-core": "^0.3.0",
-    "ember-frost-icons": "^0.1.1",
+    "ember-frost-icons": "^0.1.4",
     "ember-frost-theme": "^0.3.1",
     "ember-lodash": "^0.0.6"
   },
