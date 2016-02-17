@@ -148,20 +148,20 @@ $frost-color-button-primary-active: $frost-color-blue-4; // TODO move to ember-f
   // Content - icon
   &.icon {
     // Deprecated format
-    @include display(inline-flex);
+    display: inline-flex;
   }
 
   > .icon {
     height: 100%;
-    @include display(flex);
-    @include align-items(center);
+    display: flex;
+    align-items: center;
   }
 
   // Content - text-info
   > .icon-text {
-    @include display(flex);
-    @include flex-direction(row);
-    @include align-items(center);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
     .text {
       margin-left: 10px;
@@ -180,13 +180,13 @@ $frost-color-button-primary-active: $frost-color-blue-4; // TODO move to ember-f
 
   // Content - info
   > .info {
-    @include display(flex);
-    @include align-items(center);
+    display: flex;
+    align-items: center;
 
     .content {
-      @include display(flex);
-      @include flex-direction(column);
-      @include align-items(flex-start);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       padding-left: 10px;
 
       .text {
