@@ -13,9 +13,11 @@ export default Ember.Controller.extend({
       })
     },
 
+    /**
+     * Toggle vertical rendering
+     */
     toggleVertical () {
-      const vertical = this.get('vertical')
-      this.set('vertical', !vertical)
+      this.toggleProperty('vertical')
     }
   }
 })
