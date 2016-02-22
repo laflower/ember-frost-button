@@ -200,4 +200,61 @@ $frost-color-button-primary-active: $frost-color-blue-4; // TODO move to ember-f
       }
     }
   }
+
+  &.vertical {
+    height: auto;
+
+    &.extra-large {
+      padding: 19px 15px;
+
+      .icon {
+        height: 22px;
+      }
+    }
+
+    &.large {
+      padding: 16px 20px;
+
+      .icon {
+        height: 18px;
+      }
+    }
+
+    &.medium {
+      padding: 13px 20px;
+
+      .icon {
+        height: 14px;
+      }
+    }
+
+    &.small {
+      padding: 9px 10px;
+
+      .icon {
+        height: 12px;
+      }
+    }
+
+    .frost-icon + .content,
+    .frost-icon + .text {
+      margin-top: 8px;
+    }
+
+    .info {
+      flex-direction: column;
+
+      .content {
+        padding-left: 0px;
+      }
+    }
+
+    .icon-text {
+      flex-direction: column;
+
+      .text {
+        margin-left: 0;
+      }
+    }
+  }
 }

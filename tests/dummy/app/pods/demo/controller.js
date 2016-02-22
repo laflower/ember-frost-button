@@ -1,6 +1,8 @@
 import Ember from 'ember'
 
 export default Ember.Controller.extend({
+  vertical: false,
+
   actions: {
     click () {
       this.notifications.addNotification({
@@ -9,6 +11,13 @@ export default Ember.Controller.extend({
         autoClear: true,
         clearDuration: 2000
       })
+    },
+
+    /**
+     * Toggle vertical rendering
+     */
+    toggleVertical () {
+      this.toggleProperty('vertical')
     }
   }
 })

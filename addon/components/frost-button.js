@@ -90,6 +90,7 @@ export default Ember.Component.extend({
    * 'confirm' => 'primary'
    * 'normal' => 'secondary'
    * 'cancel' => 'tertiary'
+   * @type {String}
    */
   priority: 'confirm',
 
@@ -97,23 +98,33 @@ export default Ember.Component.extend({
    * How big do you want your button?
    * Currently available options are:
    * ['small', 'medium', 'large', 'extra-large']
+   * @type {String}
    */
   size: 'medium',
 
   /**
    * The text to display within this button
+   * @type {String}
    */
   text: '',
 
   /**
    * The icon to display within this button
+   * @type {String}
    */
   icon: '',
 
   /**
    * The subtext to display within this button (goes below the text)
+   * @type {String}
    */
   subtext: '',
+
+  /**
+   * Whether or not to render button content vertically (icon above text)
+   * @type {Boolean}
+   */
+  vertical: false,
 
   /**
    * True if only the text property is given, and not icon or subtext
@@ -143,10 +154,15 @@ export default Ember.Component.extend({
     return (this.get('icon') && this.get('text') && this.get('subtext'))
   }),
 
-  extraClasses: Ember.computed('priority', function () {
+  extraClasses: Ember.computed('priority', 'vertical', function () {
     const classes = []
     addSizeClass(this.get('size'), classes)
     addPriorityClass(this.get('priority'), classes)
+
+    if (this.get('vertical')) {
+      classes.push('vertical')
+    }
+
     return classes.join(' ')
   }),
 
