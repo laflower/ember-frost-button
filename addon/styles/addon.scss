@@ -23,6 +23,10 @@ $frost-color-button-primary-active: $frost-color-blue-4; // TODO move to ember-f
   &:focus, &:active {
     outline: none;
   }
+  
+  &:focus {
+    box-shadow: 0px 1px 6px rgba(0, 158, 239, 0.75)
+  }
 
   &.disabled {
     opacity: 0.25;
@@ -42,6 +46,10 @@ $frost-color-button-primary-active: $frost-color-blue-4; // TODO move to ember-f
       box-shadow: 0 0 1px 1px lightgrey; // TODO Variable
     }
 
+    &:focus {
+      border: solid 2px #a1e7ff;
+    }
+
     &.disabled:hover {
       background-color: $frost-color-button-primary-bg;
       box-shadow: none;
@@ -54,12 +62,12 @@ $frost-color-button-primary-active: $frost-color-blue-4; // TODO move to ember-f
   }
 
   &.secondary {
-    border: 1px solid $frost-color-button-secondary-border;
+    border: 2px solid $frost-color-button-secondary-border;
     background-color: $frost-color-button-secondary-bg;
     @include button-color($frost-color-button-secondary);
 
     &:hover {
-      box-shadow: 1px 1px 1px 1px lightgrey; // TODO Variable
+      background-color: transparentize($frost-color-blue-1, .9);
     }
 
     &.disabled:hover {
@@ -79,6 +87,10 @@ $frost-color-button-primary-active: $frost-color-blue-4; // TODO move to ember-f
 
     &:hover {
       background-color: $frost-color-button-tertiary-hover-bg;
+    }
+    
+    &:focus {
+      border: 1px solid #a1e7ff;
     }
 
     &.disabled:hover {
