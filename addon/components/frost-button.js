@@ -55,6 +55,28 @@ function addSizeClass (size, classes) {
   }
 }
 
+/**
+ * Add the appropriate class for the button design to the Array of classes
+ * Button design is restricted for use with specific applications.
+ * For example, frost-tabs uses button for tabs, but styling for
+ * tabs is quite different then for a button.  By providing 'design'
+ * property, we can style the button appropriately and still re-use
+ * other functionality.
+ *
+ * @param {String} design - button design
+ * @param {String[]} classes - the classes to add the size class to
+ */
+function addDesignClass (design, classes) {
+  switch (design) {
+    case 'tab':
+      classes.push('tab')
+      break
+    default:
+      // no class to add for this invalid size
+      break
+  }
+}
+
 export default Ember.Component.extend({
   tagName: 'button',
   classNames: [
@@ -92,7 +114,7 @@ export default Ember.Component.extend({
    * 'cancel' => 'tertiary'
    * @type {String}
    */
-  priority: 'confirm',
+  priority: '',
 
   /**
    * How big do you want your button?
@@ -100,7 +122,15 @@ export default Ember.Component.extend({
    * ['small', 'medium', 'large', 'extra-large']
    * @type {String}
    */
-  size: 'medium',
+  size: '',
+
+  /**
+   *  Specifies design of the button.
+   *  Currently available options are:
+   *  ['tab']
+   *  @type {String}
+   */
+  design: '',
 
   /**
    * The text to display within this button
@@ -156,11 +186,26 @@ export default Ember.Component.extend({
 
   extraClasses: Ember.computed('priority', 'vertical', function () {
     const classes = []
-    addSizeClass(this.get('size'), classes)
-    addPriorityClass(this.get('priority'), classes)
+    addDesignClass(this.get('design'), classes)
 
-    if (this.get('vertical')) {
-      classes.push('vertical')
+    // only add size and priority if design has not been specified
+    if (classes.length === 0) {
+      addSizeClass(this.get('size'), classes)
+      addPriorityClass(this.get('priority'), classes)
+      if (this.get('vertical')) {
+        classes.push('vertical')
+      }
+    } else {
+      // design button needs to have either text or icon property present
+      if ((this.get('text') === '') && (this.get('icon') === '')) {
+        Ember.Logger.error('Error: The `design` property requires `text` or `icon` property to be specified.')
+        return
+      }
+
+      // display warning when design property is used together with size and/or priority
+      if ((this.get('priority') !== '') || (this.get('size') !== '')) {
+        Ember.Logger.warn('Warning: The `design` property takes precedence over `size` and `priority`.')
+      }
     }
 
     return classes.join(' ')
