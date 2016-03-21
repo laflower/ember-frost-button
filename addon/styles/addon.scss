@@ -144,6 +144,24 @@ $frost-color-button-primary-active: $frost-color-blue-4; // TODO move to ember-f
     }
   }
 
+  // Design - 'tab'
+  &.tab {
+    height: 35px;
+    padding: 0 15px;
+    box-shadow: none;
+    cursor: default;
+
+    .text {
+      font-family: $frost-font-family;
+      font-size: $frost-font-m;
+      color: $frost-color-grey-5;
+    }
+
+    &:hover {
+      background-color: $frost-color-button-tertiary-hover-bg;
+    }
+  }
+
   // Content - text
   &.text {
     // Deprecated format
